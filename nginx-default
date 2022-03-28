@@ -1,0 +1,27 @@
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	# root /frontend;
+
+	# # Add index.php to the list if you are using PHP
+	# index index.html index.htm index.nginx-debian.html;
+
+	server_name localhost;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		root ${WEB_FOLDER};
+		index index.html index.htm;
+	}
+
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html {
+		root /usr/share/html;
+	}
+
+	location /api {
+		proxy_pass ${API_URL};
+	}
+}

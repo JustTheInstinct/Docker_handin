@@ -1,0 +1,3 @@
+module.exports = {
+    localUrl: "mongodb://docker_assign_db_1/example"
+}

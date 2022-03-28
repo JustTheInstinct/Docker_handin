@@ -1,0 +1,6 @@
+[database]
+MYSQL_HOST = ___MYSQL_HOST___
+MYSQL_PORT = 3306
+MYSQL_DB = backend
+MYSQL_USER = example
+MYSQL_PASSWORD = securesecure

@@ -1,0 +1,20 @@
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name localhost;
+
+	location / {
+		root ${WEB_FOLDER};
+		index index.html index.htm;
+	}
+
+	error_page 500 502 503 504 /50x.html;
+	location = /50x.html {
+		root /usr/share/html;
+	}
+
+	location /api/todos {
+		proxy_pass ${API_URL};
+	}
+}
